@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h5>Create a New employee</h5>
+<form method="post">{% csrf_token %}
+    <p>¿Seguro que desea borrar este empleado?</p>
+    <input type="submit" value="Confirmar">
+{% endblock %}

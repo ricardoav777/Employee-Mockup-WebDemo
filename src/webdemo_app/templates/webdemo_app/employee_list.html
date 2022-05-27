@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-hover" id="employeeTable">
+    <thead>
+    <tr>
+        <th></th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Email</th>
+        <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    {% for response in queryset %}
+    <tr>
+        <td><input type="checkbox" value="{{response.pk}}"></td>
+        <td> {{ response.first_name}} {{response.last_name}}</td>
+        <td> {{ response.email}}</td>
+        <td>
+            <a class="link" type="button" data-toggle="tooltip" data-placement="top" title="Editar" href="{% url 'employee-update' pk=response.pk %}">
+                <i class="fa-solid fa-user-pen" ></i>
+            </a>
+            <a class="link" type="button" data-toggle="tooltip" data-placement="top" title="Borrar" href="{% url 'employee-delete' pk=response.pk %}">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

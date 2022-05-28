@@ -21,11 +21,14 @@
               <a class="nav-link" href="" id="multipleDelete">Borrar selección</a>
             </li>
           </ul>
-          <form class="form-inline">
+          <form action="{% url 'employee-search' %}" method="GET" class="form-inline">
             <div class="input-group">
-              <input class="btn btn-danger" type="reset" value="Reset">
-              <input class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar </button>
+              <a class="btn btn-danger" role="button" value="Reset" href="{% url 'employee-list' %}">Reset</a>
+              <input class="form-control mr-sm-2" type="search" id="first_name" name="first_name" placeholder="Buscar por nombre" aria-label="Search" required>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+
+                </a>
+              </a>
             </div>
           </form>
         </div>
